@@ -1,0 +1,241 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lobster', cursive;
+    line-height: 1.6;
+    background: #f4f4f4;
+    color: #333;
+    font-size : 20px;
+}
+
+.container {
+    height : auto;
+    width : 100%;
+    background-size : cover;
+    margin: auto;
+    padding: 20px;
+    background : #ffffff;
+}
+
+header {
+    background: #D2E1FF;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    color : #000000;
+    text-align : left;
+    padding : 30px; 0px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+button-container.a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+Post {
+    position: relative;
+}
+
+
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Blog Title */
+.blog-title {
+    font-family: 'Lobster', cursive;
+    color: #ffffff;
+    font-size: 56px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align : left
+}
+
+.page-header {
+    margin-bottom: 30px;
+    padding: 20px 100px;
+    border-bottom: 2px solid #e1e1e1;
+    color : #ffffff;
+}
+
+.page-header .col-md-8 {
+    padding-left: 0;
+    color : #ffffff;
+}
+
+.page-header .col-md-4 {
+     margin-right: auto;
+}
+
+
+.label {
+    font-size : 20px;
+}
+
+/* Post Section */
+.content {
+    display: flex;
+    margin-top: 30px;
+}
+
+.col-md-8 {
+    width : 80%;
+    padding: 30px;
+    border-radius: 8px;
+    font : 300px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.col-md-6 {
+    width : 80%;
+    padding: 30px;
+    border-radius: 8px;
+    font : 300px;
+    align : center;
+    margin : 100px;
+}
+
+.col-md-8 h2 {
+    margin-top: 0;
+    text-align : center;
+    font-size : 40px;
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 20px;
+    width : 800px;
+    height : 800px;
+    margin : 20px 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h3 {
+    font-family: 'Lobster', cursive;
+    margin-bottom: 20px;
+    font-size : 80px;
+}
+
+.sidebar p {
+    margin-bottom: 20px;
+    font-size : 30px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    font-size: 16px;
+    color: #5bc0de;
+}
+
+.sidebar ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+/*게시글 추가*/
+.btn-primary {
+    background-color: #1E3269;
+    border-color: #46b8da;
+}
+
+.btn-primary:hover {
+    background-color: #46b8da;
+    border-color: #31b0d5;
+}
+
+.form-control {
+    height: 50px;
+    width : 15%;
+    font-size: 20px;
+    padding: 5px 10px;
+    margin : 20px
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777;
+}
+
+footer a {
+    color: #5bc0de;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+.gallery {
+    font-family: 'Pacifico', cursive;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.gallery-item {
+    flex: 0 0 48%;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #EBF5FF;
+
+}
+.post h1 {
+    font-size: 2.5em;
+}
+.post-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.Profile Image {
+    width: 70px;
+    height : 70px;
+    border-radius : 70%
+    overflow : hidden;
+
+}
+
+.centered {
+    margin: 20px 30px;
+    font-size : 30px;
+}
+
+.form-container {
+     max-width: 600px;
+     margin: 0 auto;
+     padding: 20px;
+     border-radius: 5px;
+}
+
+.form-container .p {
+    text : 30px;
+}

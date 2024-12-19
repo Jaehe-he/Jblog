@@ -1,0 +1,29 @@
+{% extends "blog/base2.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+  <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user_profile.image.url }}" alt="Profile Image">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p>성별: {{ user_profile.gender }}</p>
+        <p>{{ user_profile.bio }}</p>
+        <a href="{% url 'profile_edit' %}" class="btn btn-primary">프로필 수정</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block sidebar %}
+  {% if not request.path == '/profile/' %}
+    <div class="col-md-4 sidebar">
+      <h3>Recent Posts</h3>
+      <ul class="list-unstyled">
+        {% for post in recent_posts %}
+        <li><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+{% endblock %}

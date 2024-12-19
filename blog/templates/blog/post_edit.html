@@ -1,0 +1,26 @@
+{% extends 'blog/base2.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>새 게시물 작성</title>
+</head>
+<body>
+{% block content %}
+
+<div class = "centered">
+    <h2>게시물</h2>
+    <div class = "form-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+    <button type="submit" class="btn btn-primary">게시물 저장</button>
+</form>
+</div>
+</div>
+
+{% endblock %}
+</body>
+</html>

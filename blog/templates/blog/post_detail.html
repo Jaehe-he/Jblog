@@ -1,0 +1,36 @@
+{% extends 'blog/base2.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+{% block content %}
+
+  <div class="post">
+    {% if user.is_authenticated %}
+      <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+
+    {% if post.published_date %}
+      <div class="date">
+        {{ post.published_date }}
+      </div>
+    {% endif %}
+    <h3>Category: {{ post.category.name }}</h3>
+    <h1>{{ post.title }}</h1>
+
+    {% if post.image %}
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="post-image">
+    {% endif %}
+
+    <p>{{ post.text|linebreaksbr }}</p>
+  </div>
+
+{% endblock %}
+</body>
+</html>

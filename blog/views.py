@@ -1,34 +1,15 @@
-from django.shortcuts import render, redirect
-from django.utils import timezone
-# views.py
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Category
-from .forms import CategoryForm  # 카테고리 폼을 가져와야 함
-# views.py
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Category
-# views.py
-from django.shortcuts import render, get_object_or_404
-from .models import Post, Category
-from django.shortcuts import render, get_object_or_404
-from .forms import PostForm, CategoryForm  # 필요한 폼을 가져옵니다.
-from .forms import PostForm
-from .models import Post, Category
-from django.shortcuts import render, redirect
-# 로그인 뷰
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login
-from django.contrib import messages
+from .forms import PostForm, CategoryForm, ProfileForm
+from .models import Post, Category, Profile
 from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Profile
-from .forms import ProfileForm
 from django.contrib.auth.decorators import login_required
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+
 
 # 홈 뷰 (처음 접속 시 로그인 페이지로 리디렉션)
 def home(request):
@@ -158,12 +139,6 @@ def profile_edit(request):
         form = ProfileForm(instance=profile)
     return render(request, 'blog/profile_edit.html', {'form': form})
 
-
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.contrib.auth.models import User
-from .models import Profile  # Profile 모델을 가져옵니다.
-
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
@@ -172,10 +147,6 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
-
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Profile
 
 def blog_posts(request):
     try:

@@ -157,3 +157,29 @@ def profile_edit(request):
     else:
         form = ProfileForm(instance=profile)
     return render(request, 'blog/profile_edit.html', {'form': form})
+
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.contrib.auth.models import User
+from .models import Profile  # Profile 모델을 가져옵니다.
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
+
+from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Profile
+
+def blog_posts(request):
+    try:
+        profile = request.user.profile
+    except Profile.DoesNotExist:
+        profile = None  # 프로필이 없으면 None으로 처리
+    return render(request, 'blog/posts.html', {'profile': profile})
